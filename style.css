@@ -1,0 +1,43 @@
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: url('assets/site-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+.app {
+  max-width: 500px;
+  margin: 50px auto;
+  background: rgba(0,0,0,0.7);
+  padding: 20px;
+  border-radius: 10px;
+}
+.header {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.chat {
+  height: 300px;
+  overflow-y: auto;
+  background: url('assets/chat-bg.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+#msg {
+  width: 75%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+button {
+  width: 20%;
+  padding: 10px;
+  background: #ff0000;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
