@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>ABDO DEMON Ai</title>
+<title>ABDO DEMON AI</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="chat-container">
-    <h1 class="chat-title">ABDO DEMON Ai</h1>
-    <div id="chat-box" class="chat-box"></div>
-    <div class="input-area">
-        <textarea id="userInput" placeholder="اكتب رسالتك هنا..."></textarea>
-        <button onclick="sendMessage()">إرسال</button>
-    </div>
+
+<div class="bg">ABDO DEMON</div>
+
+<div class="header">
+ABDO DEMON AI
 </div>
-<script src="app.js"></script>
+
+<div id="chat"></div>
+
+<div class="inputBox">
+<input id="msg" placeholder="اكتب رسالتك">
+<button onclick="send()">ارسال</button>
+</div>
+
+<script type="module" src="app.js"></script>
+
 </body>
 </html>
