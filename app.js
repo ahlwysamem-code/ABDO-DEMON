@@ -1,27 +1,26 @@
-async function sendMessage() {
-    const input = document.getElementById("userInput").value;
-    if (!input.trim()) return;
+import { CreateMLCEngine } from "https://esm.run/@mlc-ai/web-llm"
 
-    const chatBox = document.getElementById("chat-box");
+const engine = await CreateMLCEngine("gemma-2b-it-q4f32_1")
 
-    const userDiv = document.createElement("div");
-    userDiv.className = "user-msg";
-    userDiv.textContent = "أنت: " + input;
-    chatBox.appendChild(userDiv);
-    chatBox.scrollTop = chatBox.scrollHeight;
+async function send(){
 
-    const res = await fetch("/ask", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input })
-    });
-    const data = await res.json();
+let input=document.getElementById("msg")
+let text=input.value
 
-    const aiDiv = document.createElement("div");
-    aiDiv.className = "ai-msg";
-    aiDiv.textContent = "ABDO DEMON Ai: " + data.reply;
-    chatBox.appendChild(aiDiv);
-    chatBox.scrollTop = chatBox.scrollHeight;
+let chat=document.getElementById("chat")
 
-    document.getElementById("userInput").value = "";
+chat.innerHTML+=`<div class="user">${text}</div>`
+
+input.value=""
+
+const reply=await engine.chat.completions.create({
+messages:[{role:"user",content:text}]
+})
+
+let answer=reply.choices[0].message.content
+
+chat.innerHTML+=`<div class="ai">${answer}</div>`
+
+chat.scrollTop=chat.scrollHeight
+
 }
