@@ -1,10 +1,13 @@
-import { CreateMLCEngine } from "https://esm.run/@mlc-ai/web-llm"
+document.body.onload = () => {
 
-const engine = await CreateMLCEngine("gemma-2b-it-q4f32_1")
+document.getElementById("sound").play()
 
-async function send(){
+}
+
+function send(){
 
 let input=document.getElementById("msg")
+
 let text=input.value
 
 let chat=document.getElementById("chat")
@@ -13,13 +16,9 @@ chat.innerHTML+=`<div class="user">${text}</div>`
 
 input.value=""
 
-const reply=await engine.chat.completions.create({
-messages:[{role:"user",content:text}]
-})
+let reply="انا ABDO DEMON AI... ما الذي تريده؟"
 
-let answer=reply.choices[0].message.content
-
-chat.innerHTML+=`<div class="ai">${answer}</div>`
+chat.innerHTML+=`<div class="ai">${reply}</div>`
 
 chat.scrollTop=chat.scrollHeight
 
